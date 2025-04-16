@@ -36,6 +36,8 @@ CREATE TABLE studentss (
     score NUMBER,
     registration_date DATE
 );
+
+
 ```
 
 ---
@@ -74,8 +76,10 @@ SELECT
         ELSE 'EQUAL'
     END AS comparison_with_prev
 FROM studentss;
-```
 
+
+```
+![Image](https://github.com/user-attachments/assets/f10acd64-75c0-4a97-b1bf-9a6d70e25aa6)
 📌 **Purpose:** Helps identify performance trends in each subject.
 
 ---
@@ -94,7 +98,7 @@ SELECT
     DENSE_RANK() OVER (PARTITION BY class ORDER BY score DESC) AS dense_rank_in_class
 FROM studentss;
 ```
-
+![Image](https://github.com/user-attachments/assets/fab55a88-d042-483f-8ad1-3cb174446994)
 📌 **Purpose:** Shows rank differences and gaps between scores.
 
 ---
@@ -116,7 +120,7 @@ FROM (
 )
 WHERE rank_in_class <= 3;
 ```
-
+![Image](https://github.com/user-attachments/assets/0a0d23c5-df7f-470a-8327-f947609da45f)
 📌 **Purpose:** Highlights high-performing students in every class.
 
 ---
@@ -138,7 +142,7 @@ FROM (
 )
 WHERE row_num <= 2;
 ```
-
+![Image](https://github.com/user-attachments/assets/06fd083e-fc7c-4265-80cd-9b459b69acbc)
 📌 **Purpose:** Tracks early registrants, useful for administrative reports.
 
 ---
@@ -157,7 +161,7 @@ SELECT
     MAX(score) OVER () AS overall_max_score
 FROM studentss;
 ```
-
+![Image](https://github.com/user-attachments/assets/b5314689-b9e2-4b00-b222-d8c722c023d4)
 📌 **Purpose:** Helps in determining top performance both locally (class) and globally (school-wide).
 
 ---
